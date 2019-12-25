@@ -1,0 +1,18 @@
+function duplicateCount(text) {
+    const lowerText = text.toLowerCase().split("");
+    let count = 0;
+    const arrCopy = lowerText.slice();
+
+    while (arrCopy.length > 0) {
+        const charToCheck = arrCopy.shift();
+        if (arrCopy.includes(charToCheck)) {
+        
+            while (arrCopy.indexOf(charToCheck) > 0) {
+                arrCopy.splice(arrCopy.indexOf(charToCheck), 1);
+            }
+            
+            count++;
+        }
+    }
+    return count;
+}
